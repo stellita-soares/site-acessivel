@@ -1,43 +1,26 @@
-document.addEventListener('DOMContentLoaded', function(){
-    const botaoDeAcessibilidade = document.getElementById('botao-acessibilidade')
-    const opcoesDeAcessibilidade = document.getElementById('opcoes-acessibilidade')
- 
-    botaoDeAcessibilidade.addEventListener('click', function (){
-     botaoDeAcessibilidade.classList.toggle('rotacao-botao');
-     opcoesDeAcessibilidade.classList.toggle('apresenta-lista')
- 
-     const botaoSelecionado = botaoDeAcessibilidade.getAttribute('aria-expanded') === 'true';
-     botaoDeAcessibilidade.setAttribute('aria-expanded', !botaoSelecionado)
-   
-    })
- 
-     const aumentaFonteBotao = document.getElementById('aumentar-fonte');
-     const diminuiFonteBotao = document.getElementById('diminuir-fonte');
-     
-     const alternaContraste = document.getElementById('alterna-contraste')
- 
-     let tamanhoAtualFonte = 1;
- 
-     aumentaFonteBotao.addEventListener('click', function(){
-         tamanhoAtualFonte += 0.1;
-         document.body.style.fontSize = `${tamanhoAtualFonte}rem`
- 
-     })
- 
-     diminuiFonteBotao.addEventListener('click', function(){
-         tamanhoAtualFonte -= 0.1;
-         document.body.style.fontSize = `${tamanhoAtualFonte}rem`
- 
-     })
- 
-     alternaContraste.addEventListener('click', function(){
-         document.body.classList.toggle('alto-contraste')
-     })
- 
- 
- })
- 
- ScrollReveal().reveal('#inicio', { delay: 500 });
- ScrollReveal().reveal('#tropicalia', { delay: 500 });
- ScrollReveal().reveal('#galeria', { delay: 500 });
- ScrollReveal().reveal('#contato', { delay: 500 });
+// Script de acessibilidade
+const botao = document.getElementById("botao-acessibilidade");
+const opcoes = document.getElementById("opcoes-acessibilidade");
+const aumentar = document.getElementById("aumentar-fonte");
+const diminuir = document.getElementById("diminuir-fonte");
+const contraste = document.getElementById("alterna-contraste");
+
+// Toggle menu acessibilidade
+botao.addEventListener("click", () => {
+    opcoes.classList.toggle("apresenta-lista");
+});
+
+// Aumentar fonte
+aumentar.addEventListener("click", () => {
+    document.body.style.fontSize = "larger";
+});
+
+// Diminuir fonte
+diminuir.addEventListener("click", () => {
+    document.body.style.fontSize = "smaller";
+});
+
+// Alternar contraste
+contraste.addEventListener("click", () => {
+    document.body.classList.toggle("contraste-alto");
+});
